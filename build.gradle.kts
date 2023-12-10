@@ -5,6 +5,8 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version "1.9.21"
     kotlin("plugin.spring") version "1.9.20"
+
+    id("org.jlleitschuh.gradle.ktlint") version "12.0.2"
 }
 
 group = "com.example"
@@ -19,9 +21,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // for Java: testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter:1.0.5")
+    testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter-kotlin:1.0.5")
 }
 
 tasks.withType<KotlinCompile> {
