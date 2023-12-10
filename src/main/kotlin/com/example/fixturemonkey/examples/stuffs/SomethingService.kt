@@ -13,7 +13,8 @@ class SomethingService(
         val responses = somethingRepository.something()
 
         return responses.asSequence()
-            .filter { it.isExpired() }
+            .filter { it.isExpired().not() }
+            .filter { it.isDisplay }
             .sortedBy { it.validEndDate }
             .toList()
     }
